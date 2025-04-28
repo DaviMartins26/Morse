@@ -77,7 +77,7 @@ public class Morse{
         parametroArvore(raiz,0);
     }
 
-    private void parametroArvore(No no, int nivel) {
+    public void parametroArvore(No no, int nivel) { 
         if (no == null) { // se for null returna nada pra saber que ta na hora de parar
             return;
         }
@@ -159,7 +159,31 @@ public class Morse{
         return resultado; // retorna o resultado
     }
 
-        /* ---------------------------------------------------------------------------------------------------
+    /* ---------------------------------------------------------------------------------------------------
     -------------------------------------------De Letra pra Morse----------------------------------------
     ---------------------------------------------------------------------------------------------------*/ 
+
+    public String decifrarMorse(char letra){ // passa o parametro da Letra pra ser codificada
+        return buscarCodigoMorse(raiz,letra,"");
+    }
+
+    public String buscarCodigoMorse(No no, char letra, String caminho){ // recebe o parametro pra ser codificado
+        if (no == null){ // se o no for null retorna null como String
+            return "";
+        }
+        if (no.elemento == letra){ // se o elemento do No for iigual a letra informada
+            return caminho;
+        }
+
+        // começa a procurar pela esquerda (.)
+        String caminhoEsquerda = buscarCodigoMorse(no.esquerda, letra, caminho+"."); // olha sempre pro no esquerdo primeiro
+        if (caminhoEsquerda.length()>0){ // fica procurando até o final do raiz
+            return caminhoEsquerda; // se achar retorna o elmento
+        }
+
+        // se não achar vai pra direito (-)
+        String caminhoDireita = buscarCodigoMorse(no.direita,letra,caminho+"-");
+        return caminhoDireita;
+
+    }
 }

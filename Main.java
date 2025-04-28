@@ -9,6 +9,7 @@ public class Main {
         System.out.println(morse.buscaCodigo(".-"));
         System.out.println(morse.buscaFrase(".- -- ... -"));
         System.out.println(morse.buscaFrase(".- -- ... - "));
+        System.out.println(morse.decifrarMorse('V')); // tem qu8e usar aspa simples e MAISCULO
 
         System.out.println("Programa encerrado"); // pra saber se não ta preso em algum loop
 
