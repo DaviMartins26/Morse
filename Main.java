@@ -4,6 +4,12 @@ public class Main {
         morse.iniciar();
         morse.inserirElementos();
 
+        //morse.imprimirArvore();
+
+        System.out.println(morse.buscaCodigo(".-"));
+        System.out.println(morse.buscarFrase(".- -- ... -"));
+
+        System.out.println("Programa encerrado"); // pra saber se não ta preso em algum loop
 
     }
 }
