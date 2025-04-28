@@ -103,7 +103,7 @@ public class Morse{
     }
 
     /* ---------------------------------------------------------------------------------------------------
-    -------------------------------------------De Codigo pra Morse----------------------------------------
+    -------------------------------------------De Codigo pra Letra----------------------------------------
     ---------------------------------------------------------------------------------------------------*/ 
 
     public char buscaCodigo(String codigo){
@@ -130,7 +130,7 @@ public class Morse{
         return atual.elemento; // retorna o elemento do atual 
     }
 
-    public String buscarFrase(String codigoFrase){
+    public String buscaFrase(String codigoFrase){
         //  iniciado vazio e não null pq a IDE tava reclamando
         String resultado = ""; // variavel pra retonrar oque foi decifrado
         String codigoAtual = ""; //  variavel pra saber o codigo da letra da vez
@@ -151,7 +151,15 @@ public class Morse{
             }
             i = i +1; // avança o while
         }
-        return resultado; // volta com o resultado
+        // por algum motivo não le o ultimo codigo se a String não for finalizada com " ", isso deve resolver
+        if (codigoAtual.length() >0){ // se a length da string for maioor que 0 entra ai
+            char letra = buscaCodigo(codigoAtual); // procura a letra correspondente ao codigo
+            resultado = resultado +letra; // adiciona a letra ao resultado
+        }
+        return resultado; // retorna o resultado
     }
 
+        /* ---------------------------------------------------------------------------------------------------
+    -------------------------------------------De Letra pra Morse----------------------------------------
+    ---------------------------------------------------------------------------------------------------*/ 
 }

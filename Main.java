@@ -7,7 +7,8 @@ public class Main {
         //morse.imprimirArvore();
 
         System.out.println(morse.buscaCodigo(".-"));
-        System.out.println(morse.buscarFrase(".- -- ... -"));
+        System.out.println(morse.buscaFrase(".- -- ... -"));
+        System.out.println(morse.buscaFrase(".- -- ... - "));
 
         System.out.println("Programa encerrado"); // pra saber se não ta preso em algum loop
 
