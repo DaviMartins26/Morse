@@ -49,22 +49,11 @@ public class InterfaceMorse {
 
         //Texto para Morse
         btnParaMorse.addActionListener(e -> {
-            String texto = inputField.getText().toUpperCase();
-            StringBuilder resultado = new StringBuilder();
-            for (char c : texto.toCharArray()) {
-                if (c == ' ') {
-                    resultado.append("  ");
-                } else {
-                    String morseCode = morse.decifrarMorse(String.valueOf(c));
-                    if (!morseCode.isEmpty()) {
-                        resultado.append(morseCode).append("A");
-                    } else {
-                        resultado.append("? ");
-                    }
-                }
-            }
-            outputArea.setText(resultado.toString().trim());
+            String texto = inputField.getText().trim();
+            String resultado = morse.fraseParaMorse(texto);
+            outputArea.setText(resultado);
         });
+        
 
 
         // Morse para Texto

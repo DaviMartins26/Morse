@@ -170,7 +170,7 @@ public class Morse{
         if (no == null){ // se o no for null retorna null como String
             return "";
         }
-        if (no.elemento == letra){ // se o elemento do No for iigual a letra informada
+        if (no.elemento.equals(letra)){ // se o elemento do No for iigual a letra informada
             return caminho;
         }
 
@@ -185,4 +185,34 @@ public class Morse{
         return caminhoDireita;
 
     }
+
+    public String fraseParaMorse(String frase) {
+        String morse = ""; // string final com o resultado
+        int i = 0;
+    
+        while (i < frase.length()) {
+            String c = frase.substring(i, i + 1); // pega letra por letra
+    
+            if (c.equals(" ")) {
+                morse = morse + "  "; // dois espaços para separar palavras
+            } else {
+                String letra = c.toUpperCase(); // força letra maiúscula que talvez n seja necessario agora
+                try {
+                    String codigo = decifrarMorse(letra);
+                    if (codigo.length() > 0) {
+                        morse = morse + codigo + " "; // espaço entre letras
+                    } else {
+                        morse = morse + "? "; // caractere desconhecido
+                    }
+                } catch (Exception e) {
+                    morse = morse + "? ";
+                }
+            }
+    
+            i = i + 1;
+        }
+    
+        return morse;
+    }
+    
 }
