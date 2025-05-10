@@ -6,9 +6,6 @@ public class Main {
 
         morse.imprimirArvore();
 
-        System.out.println(morse.buscaCodigo(".-"));
-        System.out.println(morse.buscaFrase(".- -- ... -"));
-        System.out.println(morse.buscaFrase(".- -- ... - "));
         System.out.println(morse.buscaFrase("... --- ..."));
         System.out.println(morse.decifrarMorse("O")); // Tem que usar Aspas DUPLAS e MAIUSCULO
         System.out.println(morse.decifrarMorse("S"));
